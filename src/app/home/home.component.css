@@ -1,0 +1,21 @@
+html {
+    overflow: auto;
+}
+  
+html,
+body,
+div,
+iframe {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh; /* For 100% screen height */
+    width:  100vw; /* For 100% screen width */
+    border: none;
+}
+  
+iframe {
+    display: block;
+    border: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

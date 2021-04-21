@@ -1,0 +1,16 @@
+<div class="bg-layout">
+  <div class="container bg-image">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <form onsubmit="event.preventDefault()" class="box">
+            <h1 style="text-align: center;">Login</h1>
+            <input type="text" name="inputname"
+              [(ngModel)]="email" placeholder="Email"> <input type="password" [(ngModel)]="password" name="password"
+              placeholder="Password"> <a class="forgot" href="#">Forgot password?</a> <input type="submit" name="" value="Login" href="#" (click)="login()"><a class="notmember" routerLink="/register">Not a member? SIGN UP</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
