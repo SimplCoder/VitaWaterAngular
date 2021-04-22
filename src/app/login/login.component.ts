@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { FirebaseService } from '../services/firebase.service';
+import {CaptchaService} from '../services/captcha.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
-    public fService: FirebaseService
+    public fService: FirebaseService,
+    public captchaService: CaptchaService
   ) { }
 
   ngOnInit(): void {
@@ -39,5 +40,23 @@ export class LoginComponent implements OnInit {
       this.fService.failureMessage(err.message);
     }
   }
+
+  async resolved(captchaResponse: string): Promise<void> {
+    console.log('Resolved response token:', captchaResponse);
+    await this.sendTokenToBackend(captchaResponse);
+  }
+
+  sendTokenToBackend(token: string): void{
+    this.captchaService.sendToken(token).subscribe(
+        (data: any) => {
+          console.log(data);
+        },
+        (err: any) => {
+          console.log(err);
+        },
+        () => {}
+    );
+  }
+
 
 }

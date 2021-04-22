@@ -7,7 +7,13 @@
             <h1 style="text-align: center;">Login</h1>
             <input type="text" name="inputname"
               [(ngModel)]="email" placeholder="Email"> <input type="password" [(ngModel)]="password" name="password"
-              placeholder="Password"> <a class="forgot" href="#">Forgot password?</a> <input type="submit" name="" value="Login" href="#" (click)="login()"><a class="notmember" routerLink="/register">Not a member? SIGN UP</a>
+              placeholder="Password">
+            <div class="captcha">
+              <re-captcha (resolved)="resolved($event)"
+                          siteKey="6Ld2mLQaAAAAAIP1vFdHj8Vamg21da6S9lq461Tr">
+              </re-captcha>
+            </div>
+            <a class="forgot" href="#">Forgot password?</a> <input type="submit" name="" value="Login" href="#" (click)="login()"><a class="notmember" routerLink="/register">Not a member? SIGN UP</a>
           </form>
         </div>
       </div>

@@ -9,15 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import {RecaptchaFormsModule, RecaptchaModule} from 'ng-recaptcha';
+import {HttpClientModule} from '@angular/common/http';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDs3q-i7tsLtpy0vUJJ6Ejbk6LxeTQ6GiA",
-  authDomain: "vitawater-9b375.firebaseapp.com",
-  projectId: "vitawater-9b375",
-  storageBucket: "vitawater-9b375.appspot.com",
-  messagingSenderId: "395378570353",
-  appId: "1:395378570353:web:24e79d456148a69d3c97d0",
-  measurementId: "G-H4R6RN498J"
+  apiKey: 'AIzaSyDs3q-i7tsLtpy0vUJJ6Ejbk6LxeTQ6GiA',
+  authDomain: 'vitawater-9b375.firebaseapp.com',
+  projectId: 'vitawater-9b375',
+  storageBucket: 'vitawater-9b375.appspot.com',
+  messagingSenderId: '395378570353',
+  appId: '1:395378570353:web:24e79d456148a69d3c97d0',
+  measurementId: 'G-H4R6RN498J'
 };
 
 @NgModule({
@@ -32,7 +34,10 @@ const firebaseConfig = {
     AngularFirestoreModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    RecaptchaModule,
+    RecaptchaFormsModule,
+    HttpClientModule
   ],
   providers: [FirebaseService, AngularFirestore],
   bootstrap: [AppComponent]
